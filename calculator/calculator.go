@@ -1,10 +1,11 @@
+// package calculator does simple calculations
 package calculator
 
 import (
 	"errors"
 	"math"
 )
-
+// Add takes two numbers and output their additon 
 func Add(a, b float64) float64 {
 	return a + b
 }
