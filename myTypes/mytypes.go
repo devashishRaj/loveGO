@@ -8,7 +8,7 @@ type MyString string
 
 // MyBuilder  won't be able to use strings.Builder methods via following
 // type MyBuilder strings.Builder
-// but here's a solution
+// but here's a solution Wrapping strings.Builder with a struct
 type MyBuilder struct {
 	Contents strings.Builder
 }
@@ -41,6 +41,9 @@ func Double(x *int) {
 	*x *= 2
 }
 
+// a method having pointer as a recevier is called, pointer method
 func (input *MyInt) Double() {
+	// To get the value pointed to by input, we write *input (“star‐input”):
+	// dereferencing the pointer.
 	*input *= 2
 }

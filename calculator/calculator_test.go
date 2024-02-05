@@ -12,15 +12,22 @@ type TestCase struct {
 	want     float64
 }
 
+// *testing.T parameter lets us control the test execution.
 func TestUsingStruct(t *testing.T) {
+	//tell Go to run this test concurrently with other tests
+	t.Parallel()
 	testCases := []TestCase{
 		{a: 2, b: 2, function: calculator.Add, want: 4},
 		{a: 3, b: 3, function: calculator.Multiply, want: 9},
 		{a: 10, b: 2, function: calculator.Subtract, want: 8},
 	}
+	// table tests
+	// _ is a place holder for values that is of no use to us .
 	for _, test := range testCases {
 		got := test.function(test.a, test.b)
 		if got != test.want {
+			//NOTE:call t.Errorf to cause the test to fail with a message otherwise it will pass by DEFAULT
+			// t.Errorf marks the test as failed, but it still continues executing rest of the test
 			t.Errorf("Expected %f got %f ", got, test.want)
 		}
 	}

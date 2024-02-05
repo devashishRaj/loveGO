@@ -5,7 +5,8 @@ import (
 	"errors"
 	"math"
 )
-// Add takes two numbers and output their additon 
+
+// Add takes two numbers and output their addition
 func Add(a, b float64) float64 {
 	return a + b
 }
@@ -21,7 +22,8 @@ func Multiply(a, b float64) float64 {
 func Divide(a, b float64) (float64, error) {
 	if b == 0 {
 		// errors.New("") takes a string arg and returns a value of type error thus allowing us to
-		// make error value as per requirement , giving us full freedom . You can use : fmt.Printf() or t.Errorf()
+		// make error value as per requirement , giving us full freedom .
+		//You can use : fmt.Printf() or t.Errorf()
 		return 0, errors.New("Divison by zero not allowed")
 	}
 	return a / b, nil

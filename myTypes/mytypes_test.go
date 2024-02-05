@@ -10,6 +10,7 @@ import (
 
 func TestTwice(t *testing.T) {
 	t.Parallel()
+	// this is type conversion , using ()
 	want := mytypes.MyInt(8)
 	got := mytypes.MyInt(4).Twice()
 	if got != want {
@@ -69,6 +70,7 @@ func TestDouble(t *testing.T) {
 
 	xi := mytypes.MyInt(12)
 	wanti := mytypes.MyInt(24)
+	// The & operator creates a pointer, so &xi gives a pointer to xi.
 	p := &xi
 	p.Double()
 	AssertValues(t, wanti, xi, "Test method with recevier of pointer type ")
